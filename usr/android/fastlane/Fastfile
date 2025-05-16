@@ -7,13 +7,13 @@ default_platform(:android)
 platform :android do
   desc "Deploy to Google Play"
   lane :publish_to_play_store do
-    puts "Using package name: app.couldai.nnn"
+    puts "Using package name: app.couldai.jjj"
     
     begin
       # 尝试使用completed状态发布应用
       upload_to_play_store(
-        package_name: 'app.couldai.nnn',
-        track: 'alpha',
+        package_name: 'app.couldai.jjj',
+        track: 'internal',
         aab: '../build/app/outputs/bundle/release/app-release.aab',
         json_key_data: ENV["GOOGLE_PLAY_SERVICE_ACCOUNT_JSON"],
         skip_upload_metadata: true,
@@ -31,8 +31,8 @@ platform :android do
         
         # 再次尝试，使用draft状态
         upload_to_play_store(
-          package_name: 'app.couldai.nnn',
-          track: 'alpha',
+          package_name: 'app.couldai.jjj',
+          track: 'internal',
           aab: '../build/app/outputs/bundle/release/app-release.aab',
           json_key_data: ENV["GOOGLE_PLAY_SERVICE_ACCOUNT_JSON"],
           skip_upload_metadata: true,
